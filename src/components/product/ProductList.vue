@@ -4,22 +4,8 @@
       <i class="fa fa-2x fa-user-circle"></i>
     </div>
     <div class="product-list">
-      <div class="product-list--item">
-        <div>
-          <h2 class="has-text-weight-bold">Bluza z kapturem
-            <span class="tag 
-                is-primary
-                is-pulled-right
-                has-text-white">
-              Dodaj do koszyka
-            </span>
-          </h2>
-          <p>Lekka, oddychająca bluza z kapturem z logo Vue.
-           Gwarantujemy, że będziesz wyglądać świeżo, gdy jest gorąco.</p>
-          <span class="has-text-primary has-text-weight-bold">
-            <i class="fa fa-pln"></i> 200 zł
-          </span>
-        </div>
+      <div v-for="productItem in productItems" :key="productItem.id" class="product-list--item">
+        <ProductListItem :productItem="productItem" />
       </div>
     </div>
     <div class="product-count has-text-right">
@@ -29,9 +15,27 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import ProductListItem from './ProductListItem';
+
 export default {
   name: 'ProductList',
-}
+
+  computed: {
+    ...mapGetters([
+      // map this.productItems to this.$store.getters.productItems
+      "productItems",
+    ]),
+  },
+
+  created() {
+    this.$store.dispatch("getProductItems");
+  },
+
+  components: {
+    ProductListItem,
+  }
+};
 </script>
 
 <style scoped>

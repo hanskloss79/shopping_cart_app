@@ -33,7 +33,7 @@ body {
 }
 
 #app {
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +42,7 @@ body {
 @media screen and (min-width: 769px) {
   html,
   body {
-    height: 100%;
+    height: 100vh;
   }
 }
 </style>
