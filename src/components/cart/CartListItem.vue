@@ -2,15 +2,15 @@
     <div>
         <p class="cart-item--title is-inline">{{ cartItem.title }}</p>
         <div class="is-pulled-right">
-            <i v-on:click="addCartItem(cartItem)" class="fa fa-arrow-circle-up cart-item--modify"></i>
-            <i @click="removeCartItem(cartItem)" class="fa fa-arrow-circle-down cart-item--modify"></i>
+            <i v-on:click="addCartItem(cartItem)" class="fa fa-plus-circle cart-item--modify"></i>
+            <i @click="removeCartItem(cartItem)" class="fa fa-minus-circle cart-item--modify"></i>
         </div>
         <div class="cart-item--content">
             <span class="cart-item--price has-text-primary has-text-weight-bold">
-                {{ cartItem.price }}$ each
+                {{ cartItem.price }} zł/szt 
             </span>
             <span class="cart-item--quantity has-text-grey is-pulled-right">
-                Quantity: {{ cartItem.quantity }}
+               Ilość sztuk: {{ cartItem.quantity }}
             </span>
         </div>
     </div>
